@@ -52,17 +52,20 @@ export default function Index() {
           <Text className="text-white font-bold text-lg">Inicia Sesión</Text>
         </Pressable>
 
-        <View className="flex-row justify-between w-full">
-          <Text className="text-sm text-gray-300">¿Aun no tienes una cuenta?</Text>
-          <Pressable onPress={handleLogin}>
-            <Text className="text-sm text-blue-400 font-bold">Registrate</Text>
-          </Pressable>
+        <View className="w-full items-center mt-2">
+          <View className="flex-row justify-between w-full">
+            <Text className="text-sm text-gray-300">¿Aun no tienes una cuenta?</Text>
+            <Pressable onPress={handleLogin}>
+              <Text className="text-sm text-blue-400 font-bold">Registrate</Text>
+            </Pressable>
+          </View>
 
-          <Link href="/SettingsScreen" className="mt-2">
-          <Text className="text-blue-400 font-bold text-sm underline text-center">
-              Ir a Configuración ⚙️
+          
+          <Link href="/HomeScreen">
+            <Text className="text-blue-400 font-bold text-sm underline mt-3">
+            Ir a Home 🏠
             </Text>
-            </Link>
+          </Link>
         </View>
         </View>
 
