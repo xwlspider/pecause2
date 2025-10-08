@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Pressable, ImageBackground, Alert } from "react-native";
-import { Link } from "expo-router";
+import { View, Text, TextInput, Pressable, ImageBackground, Alert, TouchableOpacity } from "react-native";
+import { router } from "expo-router";
 import "../global.css";
 
 
@@ -61,11 +61,18 @@ export default function Index() {
           </View>
 
           
-          <Link href="/HomeScreen">
-            <Text className="text-blue-400 font-bold text-sm underline mt-3">
-            Ir a Home 🏠
-            </Text>
-          </Link>
+         
+          <TouchableOpacity
+          className="bg-blue-200 px-6 py-3 rounded-xl shadow-md mt-3"
+          onPress={() => {
+          router.push('/HomeScreen');
+  }}
+>
+  <Text className="text-blue-800 font-semibold text-lg text-center">
+    Ir a Home 🏠
+  </Text>
+</TouchableOpacity>
+      
         </View>
         </View>
 
