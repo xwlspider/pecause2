@@ -1,25 +1,32 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Pressable, Image, ImageBackground } from "react-native";
+import { View, Text, TextInput, Pressable, ImageBackground, Alert } from "react-native";
 import "../global.css";
 
 export default function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [unaVez, setUnaVez] = useState(true); 
+
   const handleSignUp = () => {
-    console.log("Sign Up with:", email, password);
-    // Aquí iría la lógica de Firebase
+    if (unaVez) {
+      Alert.alert("Cuenta creada");
+      setUnaVez(false); 
+    }
+    console.log("Ingresado con:", email, password);
   };
 
+  const handleLogin = () => {
+
+  };
 
   return (
-<ImageBackground
+    <ImageBackground
       source={require("../assets/images/gojo.png")}
       className="w-screen h-screen flex justify-center items-center"
       resizeMode="cover"
-    > 
-    
+    >
       <View className="bg-black/50 p-10 rounded-2xl w-80 items-center shadow-xl">
-        <Text className="text-5xl font-bold text-white mb-6">Sign Up</Text>
+        <Text className="text-5xl font-bold text-white mb-6">Hola de nuevo</Text>
 
         <TextInput
           className="w-full p-3 rounded-xl bg-white border border-gray-300 mb-4"
@@ -30,7 +37,7 @@ export default function Index() {
 
         <TextInput
           className="w-full p-3 rounded-xl bg-white border border-gray-300 mb-6"
-          placeholder="Password"
+          placeholder="Contraseña"
           secureTextEntry
           value={password}
           onChangeText={setPassword}
@@ -40,12 +47,12 @@ export default function Index() {
           onPress={handleSignUp}
           className="w-full bg-blue-600 p-3 rounded-xl items-center mb-4"
         >
-          <Text className="text-white font-bold text-lg">Create Account</Text>
+          <Text className="text-white font-bold text-lg">Inicia Sesión</Text>
         </Pressable>
 
         <View className="flex-row justify-between w-full">
           <Text className="text-sm text-gray-300">¿Aun no tienes una cuenta?</Text>
-          <Pressable>
+          <Pressable onPress={handleLogin}>
             <Text className="text-sm text-blue-400 font-bold">Registrate</Text>
           </Pressable>
         </View>
@@ -53,3 +60,4 @@ export default function Index() {
     </ImageBackground>
   );
 }
+
