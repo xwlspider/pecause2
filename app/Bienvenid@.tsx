@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Pressable, ImageBackground, Alert } from "react-native";
+import { Link } from "expo-router";
 import "../global.css";
+
 
 export default function Index() {
   const [email, setEmail] = useState("");
@@ -55,8 +57,15 @@ export default function Index() {
           <Pressable onPress={handleLogin}>
             <Text className="text-sm text-blue-400 font-bold">Registrate</Text>
           </Pressable>
+
+          <Link href="/SettingsScreen" className="mt-2">
+          <Text className="text-blue-400 font-bold text-sm underline text-center">
+              Ir a Configuración ⚙️
+            </Text>
+            </Link>
         </View>
-      </View>
+        </View>
+
     </ImageBackground>
   );
 }
